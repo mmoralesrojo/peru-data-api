@@ -1,0 +1,91 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Peru Data API",
+    "description": "Peru Data API"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/sunat/consultaruc": {
+      "get": {
+        "summary": "Consulta RUC en SUNAT",
+        "tags": [
+          "sunat"
+        ],
+        "parameters": [
+          {
+            "name": "tipofiltro",
+            "in": "query",
+            "description": "Tipo de filtro",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "ruc",
+              "enum": [
+                "ruc",
+                "documento",
+                "razonsocial"
+              ]
+            }
+          },
+          {
+            "name": "ruc",
+            "in": "query",
+            "description": "Número de RUC",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tipodocumento",
+            "in": "query",
+            "description": "Tipo de documento",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "dni",
+              "enum": [
+                "dni",
+                "ce",
+                "pasaporte",
+                "ceduladiplomatica"
+              ]
+            }
+          },
+          {
+            "name": "numerodocumento",
+            "in": "query",
+            "description": "Número de documento",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "razonsocial",
+            "in": "query",
+            "description": "Nombre o Razón Social",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Permite hacer la consulta de los datos de una empresa o persona natural a partir del número de documento o razón social.",
+            "content": {
+              "image/png": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
