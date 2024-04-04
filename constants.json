@@ -1,0 +1,17 @@
+{
+  "SUNAT": {
+    "CONSULTA_RUC": {
+      "TIPO_FILTRO": [
+        "RUC",
+        "DOCUMENTO",
+        "RAZON_SOCIAL"
+      ],
+      "TIPO_DOCUMENTO": [
+        "DNI",
+        "CE",
+        "PASAPORTE",
+        "CEDULA_DIPLOMATICA_IDENTIDAD"
+      ]
+    }
+  }
+}

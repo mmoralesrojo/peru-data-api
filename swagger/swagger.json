@@ -25,12 +25,9 @@
             "required": true,
             "schema": {
               "type": "string",
-              "default": "ruc",
-              "enum": [
-                "ruc",
-                "documento",
-                "razonsocial"
-              ]
+              "enum": {
+                "$ref": "../constants.json#/SUNAT/CONSULTA_RUC/TIPO_FILTRO"
+              }
             }
           },
           {
@@ -49,13 +46,9 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "dni",
-              "enum": [
-                "dni",
-                "ce",
-                "pasaporte",
-                "ceduladiplomatica"
-              ]
+              "enum": {
+                "$ref": "../constants.json#/SUNAT/CONSULTA_RUC/TIPO_DOCUMENTO"
+              }
             }
           },
           {

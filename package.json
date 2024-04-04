@@ -4,9 +4,12 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "tsc && node ./dist/server.js",
-    "dev": "nodemon --watch src/**/*.ts --watch ./swagger.json --exec ts-node ./src/server.ts",
-    "build": "tsc",
+    "start": "tsc && npm run task:swagger && node ./dist/src/server.js",
+    "dev": "nodemon --watch src/**/*.ts --watch ./swagger/swagger.json --exec ts-node ./src/server.ts",
+    "clean": "rm -rf ./dist/*",
+    "build": "tsc && npm run task:swagger",
+    "task:constants": "ts-node ./tasks/generateConstants.ts",
+    "task:swagger": "swagger-cli bundle -r -o ./dist/swagger/swagger.json ./swagger/swagger.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,6 +18,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "http-status-codes": "^2.3.0",
+    "joi": "^17.12.2",
     "playwright": "^1.42.1",
     "swagger-ui-express": "^5.0.0"
   },
@@ -22,6 +26,7 @@
     "@types/express": "^4.17.21",
     "@types/swagger-ui-express": "^4.1.6",
     "nodemon": "^3.1.0",
+    "swagger-cli": "^4.0.4",
     "typescript": "^5.4.3"
   }
 }
